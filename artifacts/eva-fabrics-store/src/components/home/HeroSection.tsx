@@ -41,7 +41,7 @@ export function HeroSection({ products, categories }: HeroSectionProps) {
           <div className="hero-note"><span className="note-dot" />توصيل إلى جميع محافظات العراق <span className="note-divider" /> دفع عند استلام الطلب</div>
         </div>
         <div className="hero-visual">
-          <img src="media/hero.svg" alt="مواد إنشائية وصحية وأصباغ من اخوان الصفا" />
+          <img src="photos/hero.jpg" alt="مواد إنشائية وصحية وأصباغ من اخوان الصفا" />
           <div className="hero-visual-overlay" />
           <div className="hero-vertical-label" aria-hidden="true">AL SIFA · MATERIALS</div>
         </div>

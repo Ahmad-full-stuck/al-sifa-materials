@@ -95,18 +95,18 @@ export function HomePage({ products, categories, wishlist, onWish, onAdd }: Home
 
       <section className="guide-preview-section">
         <div className="container-eva guide-preview-grid">
-          <div className="guide-preview-copy"><span className="eyebrow"><BadgeCheck size={14} />قبل أن تختار</span><h2>المادة قرار بصري<br />وعملي في آن واحد.</h2><p>العينة الجيدة لا تخفي التفاصيل. قارن المواصفات والاستخدام وطريقة العناية قبل أن تحدد الكمية والمورد.</p><Link href="/fabric-guide" className="button button-light">ابدأ دليل المواد <ArrowLeft size={16} /></Link></div>
+          <div className="guide-preview-copy"><span className="eyebrow"><BadgeCheck size={14} />قبل أن تختار</span><h2>المادة قرار بصري<br />وعملي في آن واحد.</h2><p>العينة الجيدة لا تخفي التفاصيل. قارن المواصفات والاستخدام وطريقة العناية قبل أن تحدد الكمية والمورد.</p><Link href="/materials-guide" className="button button-light">ابدأ دليل المواد <ArrowLeft size={16} /></Link></div>
           <div className="guide-faq-list glass-dark">{guideQuestions.slice(0, 4).map((item, index) => <div className={`guide-faq ${openFaq === index ? 'is-open' : ''}`} key={item.question}><button type="button" onClick={() => setOpenFaq(openFaq === index ? null : index)} aria-expanded={openFaq === index}><span>سؤال {index + 1}</span><strong>{item.question}</strong><ChevronDown size={17} /></button>{openFaq === index && <p>{item.answer}</p>}</div>)}</div>
         </div>
       </section>
 
       <section className="container-eva section-block story-section" aria-label="قصة العلامة">
-        <div className="story-visual"><img src="media/story.svg" alt="علامة اخوان الصفا للمواد الإنشائية" loading="lazy" /><span>Since<br /><strong>Al Sifa</strong></span></div>
+        <div className="story-visual"><img src="photos/story.png" alt="علامة اخوان الصفا للمواد الإنشائية" loading="lazy" /><span>Since<br /><strong>Al Sifa</strong></span></div>
         <div className="story-copy"><span className="eyebrow">قصة العلامة</span><h2>{homeStory.title}</h2><p>{homeStory.text}</p><p>نصمم تجربتنا لتكون قريبة منك: صور واضحة، مواصفات مفهومة، وخدمة تساعدك قبل الطلب وبعده.</p><Link href="/about" className="button button-outline">اعرف أكثر عن الشركة <ArrowLeft size={16} /></Link></div>
       </section>
 
       <section className="container-eva section-block brands-section" aria-label="العلامات التي نمثلها">
-        <SectionHeading eyebrow="وكيل رسمي" title="علامات نعمل معها" description="VEIN وTURKART وTAHOE وJUSTER والامل الشريف والبركة والياقوت والمرجان وأنجيكو" linkLabel="تواصل معنا" linkHref="/contact" />
+        <SectionHeading eyebrow="وكيل رسمي" title="علامات نعمل معها" description="صفا لاين ودجلة سيراميك ورافد للحديد والفرات للإسمنت وواحة الدهانات والبركة والياقوت وMARCO" linkLabel="تواصل معنا" linkHref="/contact" />
         <div className="brands-row">
           {partners.map((brand) => <span className="brand-chip" key={brand}>{brand}</span>)}
         </div>

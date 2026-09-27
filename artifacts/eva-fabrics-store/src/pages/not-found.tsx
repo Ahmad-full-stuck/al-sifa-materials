@@ -16,7 +16,7 @@ export default function NotFound() {
   if (fragmentIndex > 0) {
     const base = location.slice(0, fragmentIndex)
     if (base === '/about') return <AboutPage />
-    if (base === '/fabric-guide') return <FabricGuidePage />
+    if (base === '/materials-guide') return <FabricGuidePage />
     if (base === '/contact') return <ContactPage />
     if (base === '/policies') return <PoliciesPage />
     if (base === '/order-tracking') return <OrderTrackingPage />
@@ -36,7 +36,7 @@ export default function NotFound() {
             <Link href="/catalog" className="button button-outline">تصفح المنتجات <ArrowLeft size={16} /></Link>
           </div>
           <div className="not-found-links">
-            <Link href="/fabric-guide" className="chip">دليل المواد</Link>
+            <Link href="/materials-guide" className="chip">دليل المواد</Link>
             <Link href="/about" className="chip">من نحن</Link>
             <Link href="/contact" className="chip">تواصل معنا</Link>
             <Link href="/order-tracking" className="chip">تتبّع الطلب</Link>

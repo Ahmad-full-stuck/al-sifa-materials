@@ -1,8 +1,8 @@
 import type { Category, Product, ProductColor, ProductFaq, SiteRoute } from '@/types'
 
-const media = (name: string): string => `media/${name}.svg`
+const photo = (name: string): string => `photos/${name}.jpg`
 
-export const partners: string[] = ['VEIN', 'TURKART', 'الامل الشريف', 'البركة', 'الياقوت والمرجان', 'انجيكو', 'TAHOE', 'JUSTER']
+export const partners: string[] = ['صفا لاين', 'دجلة سيراميك', 'رافد للحديد', 'الفرات للإسمنت', 'واحة الدهانات', 'البركة', 'الياقوت', 'MARCO']
 
 const color = (id: string, name: string, hex: string, stock = 40): ProductColor => ({
   id,
@@ -25,7 +25,7 @@ export const fallbackCategories: Category[] = [
     slug: 'structural',
     name: 'مواد إنشائية',
     description: 'إسمنت وحديد وطوب ومواد بناء',
-    image: media('brick'),
+    image: photo('brick'),
     accent: '#0E6B45',
   },
   {
@@ -33,31 +33,31 @@ export const fallbackCategories: Category[] = [
     slug: 'tiles',
     name: 'بلاط وسيراميك',
     description: 'أرضيات وحوائط بمقاسات متنوعة',
-    image: media('tile-floor'),
-    accent: '#1F5C87',
+    image: photo('porcelain'),
+    accent: '#a98fc9',
   },
   {
     id: 'sanitary',
     slug: 'sanitary',
     name: 'مواد صحية',
     description: 'أحواض ومراحيض وخزانات وخلاطات',
-    image: media('basin'),
-    accent: '#2F7D5A',
+    image: photo('basin'),
+    accent: '#49765b',
   },
   {
     id: 'paints',
     slug: 'paints',
     name: 'أصباغ ومعاجين',
     description: 'دهانات داخلية وخارجية وبلاستر',
-    image: media('paint-matte'),
-    accent: '#C05A11',
+    image: photo('paint-matte'),
+    accent: '#d97943',
   },
   {
     id: 'tools',
     slug: 'tools',
     name: 'أدوات ولوازم',
     description: 'أدوات تركيب ومستلزمات الموقع',
-    image: media('roller'),
+    image: photo('tools-cat'),
     accent: '#4A5A52',
   },
 ]
@@ -71,8 +71,8 @@ export const fallbackProducts: Product[] = [
     categoryId: 'structural',
     description: 'إسمنت بورتلاندي للاعمال العامة: خرسانات، طوب، معاجين ولياسات. يُورّد بالكيس مع إمكانية توزيع الكميات على مراحل حسب جدول الموقع.',
     price: 14000,
-    image: media('cement'),
-    images: [media('cement'), media('brick'), media('rebar')],
+    image: photo('cement'),
+    images: [photo('cement'), photo('brick'), photo('rebar')],
     colors: [
       color('grey', 'رمادي إسمنتي', '#9aa0a6', 260),
       color('off-white', 'رمادي فاتح', '#c3c7c4', 80),
@@ -107,8 +107,8 @@ export const fallbackProducts: Product[] = [
     categoryId: 'structural',
     description: 'قضبان تسليح للأعمال الإنشائية والأساسات. تُباع بالكيلوغرام مع إمكانية تقطيع الأطوال حسب الطلب داخل حدود المخزن.',
     price: 1600,
-    image: media('rebar'),
-    images: [media('rebar'), media('cement'), media('brick')],
+    image: photo('rebar'),
+    images: [photo('rebar'), photo('cement'), photo('brick')],
     colors: [
       color('black-steel', 'أسود فولاذي', '#3a3f43', 640),
       color('rust', 'بني مؤكسد', '#7a5c46', 120),
@@ -143,8 +143,8 @@ export const fallbackProducts: Product[] = [
     categoryId: 'structural',
     description: 'طوب أحمر للجدران والفصلات، مفرّز ومرتب لتسهيل التحميل. مناسب للأعمال السكنية والتجارية مع إمكانية توريد الكميات على دفعات.',
     price: 150,
-    image: media('brick'),
-    images: [media('brick'), media('cement'), media('tile-wall')],
+    image: photo('brick'),
+    images: [photo('brick'), photo('cement'), photo('tile-wall')],
     colors: [
       color('red', 'أحمر', '#b4553a', 4200),
       color('dark-red', 'أحمر غامق', '#8d4230', 900),
@@ -179,8 +179,8 @@ export const fallbackProducts: Product[] = [
     categoryId: 'tiles',
     description: 'بلاط سيراميك للأرضيات بمقاس 60×60 سم، مناسب لغرف المعيشة والممرات والمحلات. متوفر درجات محايدة سهلة التنسيق مع باقي الديكور.',
     price: 6500,
-    image: media('tile-floor'),
-    images: [media('tile-floor'), media('porcelain'), media('tile-wall')],
+    image: photo('tile-floor'),
+    images: [photo('tile-floor'), photo('porcelain'), photo('tile-wall')],
     colors: [
       color('beige', 'بيج', '#d6c6ae', 90),
       color('grey', 'رمادي', '#a9aca8', 60),
@@ -217,8 +217,8 @@ export const fallbackProducts: Product[] = [
     categoryId: 'tiles',
     description: 'بلاط حائط بمقاس 30×60 سم للمطابخ ودورات المياه والممرات. يتوفر بدرجات فاتحة تسهّل تنظيف الجدران وتوسيع المكان بصرياً.',
     price: 5200,
-    image: media('tile-wall'),
-    images: [media('tile-wall'), media('tile-floor'), media('porcelain')],
+    image: photo('tile-wall'),
+    images: [photo('tile-wall'), photo('tile-floor'), photo('porcelain')],
     colors: [
       color('white', 'أبيض', '#f4f2ec', 70),
       color('beige', 'بيج', '#ddd0b8', 45),
@@ -254,8 +254,8 @@ export const fallbackProducts: Product[] = [
     categoryId: 'tiles',
     description: 'بلاط بورسلين بمقاس 80×80 سم وتشطيب لامع، مخصص للأماكن الواسعة والمداخل. مقاوم للاستهلاك اليومي ويعطي امتداداً بصرياً واضحاً.',
     price: 9800,
-    image: media('porcelain'),
-    images: [media('porcelain'), media('tile-floor'), media('tile-wall')],
+    image: photo('porcelain'),
+    images: [photo('porcelain'), photo('tile-floor'), photo('tile-wall')],
     colors: [
       color('white', 'أبيض لامع', '#f6f5f1', 30),
       color('grey', 'رمادي', '#b0b3af', 24),
@@ -290,8 +290,8 @@ export const fallbackProducts: Product[] = [
     categoryId: 'sanitary',
     description: 'حوض غسيل بورسلين بتصميم بسيط وسطح سهل التنظيف، يصلح للمطابخ الصغيرة ودورات المياه. يُورّد مع توصيل يحفظ الحافة أثناء النقل.',
     price: 85000,
-    image: media('basin'),
-    images: [media('basin'), media('faucet'), media('toilet')],
+    image: photo('basin'),
+    images: [photo('basin'), photo('faucet'), photo('toilet')],
     colors: [
       color('white', 'أبيض', '#f7f6f2', 22),
       color('grey', 'رمادي فاتح', '#d9dbd8', 8),
@@ -326,8 +326,8 @@ export const fallbackProducts: Product[] = [
     categoryId: 'sanitary',
     description: 'مرحاض بورسلين متكامل بغطاء جلوس، مناسب للاستخدام اليومي في السكن والمكاتب. يُوفر معه عبوة التركيب الأساسية عند الطلب.',
     price: 98000,
-    image: media('toilet'),
-    images: [media('toilet'), media('basin'), media('tank')],
+    image: photo('toilet'),
+    images: [photo('toilet'), photo('basin'), photo('tank')],
     colors: [
       color('white', 'أبيض', '#f7f6f2', 14),
       color('bone', 'عاجي', '#ece5d6', 6),
@@ -362,8 +362,8 @@ export const fallbackProducts: Product[] = [
     categoryId: 'sanitary',
     description: 'خزان ماء مصمت بسعة 500 لتر للأسطح والخدمات، بجدار سميك يتحمل التعرض للشمس. مناسب للمنازل والمحلات والورش.',
     price: 155000,
-    image: media('tank'),
-    images: [media('tank'), media('faucet'), media('basin')],
+    image: photo('tank'),
+    images: [photo('tank'), photo('faucet'), photo('basin')],
     colors: [
       color('white', 'أبيض', '#f2f2ee', 9),
       color('blue', 'أزرق', '#3f7fb5', 5),
@@ -398,8 +398,8 @@ export const fallbackProducts: Product[] = [
     categoryId: 'sanitary',
     description: 'خلاط ماء لحوض الغسيل بتشطيب كروم، بحركة صنبور مريحة وتوصيل مياه ساخنة وباردة. مناسب للمطابخ ودورات المياه.',
     price: 48000,
-    image: media('faucet'),
-    images: [media('faucet'), media('basin'), media('toilet')],
+    image: photo('faucet'),
+    images: [photo('faucet'), photo('basin'), photo('toilet')],
     colors: [
       color('chrome', 'كروم', '#c9ced4', 26),
       color('gold', 'ذهبي', '#c8a24a', 7),
@@ -434,8 +434,8 @@ export const fallbackProducts: Product[] = [
     categoryId: 'paints',
     description: 'دهان داخلي بتشطيب مطفي يعطي جداراً نظيفاً بلا انعكاسات، مناسب لغرف المعيشة والمكاتب. يتوفر بدرجات فاتحة تُخلط عند الطلب.',
     price: 42000,
-    image: media('paint-matte'),
-    images: [media('paint-matte'), media('paint-exterior'), media('plaster')],
+    image: photo('paint-matte'),
+    images: [photo('paint-matte'), photo('paint-exterior'), photo('plaster')],
     colors: [
       color('white', 'أبيض', '#f5f4ef', 38),
       color('beige', 'بيج', '#e3d7c2', 26),
@@ -473,8 +473,8 @@ export const fallbackProducts: Product[] = [
     categoryId: 'paints',
     description: 'دهان خارجي يتحمل الشمس والغبار والأمطار، مناسب للواجهات والأسوار والمباني الخارجية. يحافظ على لونه فترة أطول من الدهانات الداخلية.',
     price: 68000,
-    image: media('paint-exterior'),
-    images: [media('paint-exterior'), media('paint-matte'), media('plaster')],
+    image: photo('paint-exterior'),
+    images: [photo('paint-exterior'), photo('paint-matte'), photo('plaster')],
     colors: [
       color('white', 'أبيض', '#f3f2ec', 21),
       color('sand', 'رملي', '#dfceb0', 14),
@@ -511,8 +511,8 @@ export const fallbackProducts: Product[] = [
     categoryId: 'paints',
     description: 'معجون جبس لجباية الجدران قبل الدهان، بملمس ناعم يسهل صقله. مناسب لسدّ الفراغات وتجهيز الأسطح الداخلية.',
     price: 9500,
-    image: media('plaster'),
-    images: [media('plaster'), media('paint-matte'), media('cement')],
+    image: photo('plaster'),
+    images: [photo('plaster'), photo('paint-matte'), photo('cement')],
     colors: [
       color('white', 'أبيض جبسي', '#f6f4ee', 140),
       color('grey', 'رمادي فاتح', '#dcddd7', 40),
@@ -547,8 +547,8 @@ export const fallbackProducts: Product[] = [
     categoryId: 'tools',
     description: 'طقم تطبيق للدهان يشمل بكرة عريضة وفرشاة ومقبض ممتد، يصلح لأعمال الدهان الداخلية والخارجية في المنازل والمحلات.',
     price: 12500,
-    image: media('roller'),
-    images: [media('roller'), media('paint-matte'), media('safety')],
+    image: photo('roller'),
+    images: [photo('roller'), photo('paint-matte'), photo('safety')],
     colors: [
       color('blue', 'أزرق', '#2f6ea8', 30),
       color('black', 'أسود', '#2c3033', 16),
@@ -583,8 +583,8 @@ export const fallbackProducts: Product[] = [
     categoryId: 'tools',
     description: 'طقم حماية أساسي للموقع يشمل خوذة وقفازات ونظارة، مناسب لفرق التركيب وأعمال التحميل والتفريغ داخل المستودع.',
     price: 18500,
-    image: media('safety'),
-    images: [media('safety'), media('roller'), media('brick')],
+    image: photo('safety'),
+    images: [photo('safety'), photo('roller'), photo('brick')],
     colors: [
       color('yellow', 'أصفر', '#e3b23c', 24),
       color('white', 'أبيض', '#f1f0ea', 12),
@@ -619,7 +619,7 @@ export const fallbackRoutes: SiteRoute[] = [
   { id: 'new', label: 'وصل حديثاً', path: '/catalog?sort=newest', header: true },
   { id: 'favorites', label: 'المفضلة', path: '/favorites', header: false },
   { id: 'about', label: 'من نحن', path: '/about', header: true },
-  { id: 'guide', label: 'دليل المواد', path: '/fabric-guide', header: true },
+  { id: 'guide', label: 'دليل المواد', path: '/materials-guide', header: true },
   { id: 'contact', label: 'تواصل معنا', path: '/contact', header: false },
   { id: 'tracking', label: 'تتبع الطلب', path: '/order-tracking', header: false },
   { id: 'policies', label: 'السياسات', path: '/policies', header: false },

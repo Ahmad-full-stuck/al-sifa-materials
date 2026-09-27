@@ -12,19 +12,19 @@ interface ProductCardProps {
 
 const cardStyles = `
 .glass-card {
-  border: 1px solid #E1E5E0;
+  border: 1px solid #e8dcd3;
   border-radius: 14px;
   background: #FFFFFF;
-  box-shadow: 0 1px 2px rgba(17, 38, 31, .05), 0 10px 26px rgba(17, 38, 31, .07);
+  box-shadow: 0 1px 2px rgba(48, 38, 42, .05), 0 10px 26px rgba(48, 38, 42, .07);
 }
 .glass-surface {
-  border: 1px solid #E1E5E0;
+  border: 1px solid #e8dcd3;
   border-radius: 16px;
   background: #FFFFFF;
-  box-shadow: 0 1px 2px rgba(17, 38, 31, .05), 0 10px 26px rgba(17, 38, 31, .07);
+  box-shadow: 0 1px 2px rgba(48, 38, 42, .05), 0 10px 26px rgba(48, 38, 42, .07);
 }
 .glass-pill {
-  border: 1px solid #E1E5E0;
+  border: 1px solid #e8dcd3;
   border-radius: 999px;
   background: #FFFFFF;
   box-shadow: none;
@@ -37,7 +37,7 @@ const cardStyles = `
 .product-card.glass-card:hover {
   transform: translateY(-6px);
   border-color: rgba(14, 107, 69, .4);
-  box-shadow: 0 4px 10px rgba(17, 38, 31, .06), 0 24px 46px rgba(17, 38, 31, .13);
+  box-shadow: 0 4px 10px rgba(48, 38, 42, .06), 0 24px 46px rgba(48, 38, 42, .13);
 }
 .product-card.glass-card .product-card-media {
   border-radius: 12px;
@@ -47,19 +47,19 @@ const cardStyles = `
 .product-card.glass-card .product-card-body { padding: 13px 0 3px; }
 .product-card.glass-card .badge {
   border: 1px solid rgba(255, 255, 255, .6);
-  box-shadow: 0 4px 12px rgba(17, 38, 31, .18);
+  box-shadow: 0 4px 12px rgba(48, 38, 42, .18);
 }
 .product-card.glass-card .badge-accent { background: rgba(14, 107, 69, .92); }
-.product-card.glass-card .badge-warm { background: rgba(192, 90, 17, .92); }
+.product-card.glass-card .badge-warm { background: rgba(217, 121, 67, .92); }
 .product-card.glass-card .badge-muted { background: #FFFFFF; }
 .product-card.glass-card .product-wish {
-  background: rgba(17, 38, 31, .58);
+  background: rgba(48, 38, 42, .58);
   transition: background-color .2s ease, color .2s ease, transform .2s ease;
 }
 .product-card.glass-card .product-wish:hover,
 .product-card.glass-card .product-wish.is-active { transform: scale(1.08); }
 .product-card.glass-card .add-button { background: #FFFFFF; }
-.product-card.glass-card .add-button:hover:not(:disabled) { background: #F2F7F3; }
+.product-card.glass-card .add-button:hover:not(:disabled) { background: #fff8f1; }
 .skeleton-shimmer { position: relative; }
 .skeleton-shimmer::after {
   content: '';
@@ -121,7 +121,7 @@ export function ProductCard({ product, wished, onWish, onAdd }: ProductCardProps
               const node = event.currentTarget
               if (node.dataset.fallback === '1') return
               node.dataset.fallback = '1'
-              node.src = 'media/hero.svg'
+              node.src = 'photos/hero.jpg'
             }}
           />
         </Link>

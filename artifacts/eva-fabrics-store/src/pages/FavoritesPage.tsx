@@ -45,7 +45,7 @@ export function FavoritesPage({ products, categories, wishlist, onWish, onAdd }:
             <p>اضغط على القلب في أي منتج ليظهر هنا، ثم انقله إلى السلة بالكمية المطلوبة بضغطة واحدة.</p>
             <div className="empty-actions">
               <Link href="/catalog" className="button button-primary">تصفح المنتجات <ArrowLeft size={16} /></Link>
-              <Link href="/fabric-guide" className="button button-outline">دليل اختيار المواد <ArrowLeft size={16} /></Link>
+              <Link href="/materials-guide" className="button button-outline">دليل اختيار المواد <ArrowLeft size={16} /></Link>
             </div>
             <div className="local-orders">
               <span>أقسام مقترحة:</span>

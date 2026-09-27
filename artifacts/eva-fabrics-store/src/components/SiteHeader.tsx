@@ -25,7 +25,7 @@ const primaryNav: NavItem[] = [
   { id: 'home', label: 'الرئيسية', path: '/' },
   { id: 'catalog', label: 'المنتجات', path: '/catalog' },
   { id: 'favorites', label: 'المفضلة', path: '/favorites' },
-  { id: 'guide', label: 'دليل المواد', path: '/fabric-guide' },
+  { id: 'guide', label: 'دليل المواد', path: '/materials-guide' },
   { id: 'about', label: 'من نحن', path: '/about' },
   { id: 'contact', label: 'تواصل معنا', path: '/contact' },
   { id: 'stats', label: 'الإحصائيات', path: '/stats' },

@@ -31,7 +31,7 @@ const statsStyles = `
 .stats-refresh.is-spinning svg { animation: stats-spin .65s ease; }
 @keyframes stats-spin { to { transform: rotate(-360deg); } }
 .stats-page .stats-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 6px; }
-.stats-page .glass-card { position: relative; overflow: hidden; border-radius: 22px; background: linear-gradient(155deg, rgba(255, 253, 251, .93), rgba(255, 250, 245, .58)); border: 1px solid rgba(255, 255, 255, .85); box-shadow: 0 18px 40px rgba(17, 38, 31, .1), inset 0 1px 0 rgba(255, 255, 255, .9); -webkit-backdrop-filter: none; backdrop-filter: none; }
+.stats-page .glass-card { position: relative; overflow: hidden; border-radius: 22px; background: linear-gradient(155deg, rgba(255, 253, 251, .93), rgba(255, 250, 245, .58)); border: 1px solid rgba(255, 255, 255, .85); box-shadow: 0 18px 40px rgba(48, 38, 42, .1), inset 0 1px 0 rgba(255, 255, 255, .9); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); }
 .stats-page .glass-card::before { content: ''; position: absolute; right: auto; left: auto; width: 150px; height: 150px; top: -78px; inset-inline-start: -56px; border-radius: 50%; background: radial-gradient(circle, rgba(14, 107, 69, .17), rgba(14, 107, 69, 0) 70%); pointer-events: none; }
 .stats-page .glass-card > * { position: relative; }
 .stats-page .stat-card { display: flex; flex-direction: column; gap: 7px; min-height: 134px; padding: 17px 16px; }
@@ -54,7 +54,7 @@ const statsStyles = `
 .bars-chart { position: relative; display: flex; align-items: flex-end; gap: 10px; min-height: 238px; }
 .bars-col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 8px; }
 .bars-total { font-size: 11px; font-weight: 600; color: var(--eva-ink); }
-.bars-stack { width: 100%; max-width: 66px; height: 150px; display: flex; flex-direction: column-reverse; overflow: hidden; border-radius: 9px; background: rgba(225, 229, 223, .45); }
+.bars-stack { width: 100%; max-width: 66px; height: 150px; display: flex; flex-direction: column-reverse; overflow: hidden; border-radius: 9px; background: rgba(232, 220, 211, .45); }
 .bar-seg { width: 100%; transition: height .55s ease; }
 .bar-low { background: var(--eva-green); }
 .bar-mid { background: var(--eva-orange); }
@@ -64,7 +64,7 @@ const statsStyles = `
 .donut-area { display: flex; flex-direction: column; align-items: center; gap: 14px; }
 .donut-wrap { position: relative; width: 194px; height: 194px; }
 .donut-wrap svg { width: 100%; height: 100%; display: block; }
-.donut-track { stroke: rgba(225, 229, 223, .9); }
+.donut-track { stroke: rgba(232, 220, 211, .9); }
 .donut-fill { stroke: var(--eva-rose); transition: stroke-dashoffset .7s ease; }
 .donut-center { position: absolute; inset: 0; display: grid; place-content: center; gap: 2px; text-align: center; }
 .donut-center strong { font-size: 30px; line-height: 1.2; color: var(--eva-rose); }
@@ -77,13 +77,13 @@ const statsStyles = `
 .stock-top { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 6px; }
 .stock-name { font-size: 12px; color: var(--eva-ink); overflow-wrap: anywhere; }
 .stock-top strong { flex: 0 0 auto; font-size: 12px; color: var(--eva-rose); white-space: nowrap; }
-.stock-track { height: 9px; overflow: hidden; border-radius: 999px; background: rgba(225, 229, 223, .6); }
+.stock-track { height: 9px; overflow: hidden; border-radius: 999px; background: rgba(232, 220, 211, .6); }
 .stock-track span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--eva-rose), rgba(14, 107, 69, .5)); transition: width .6s ease; }
 .diversity-body { display: grid; gap: 13px; }
 .diversity-figure { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
 .diversity-figure strong { font-size: clamp(19px, 2vw, 25px); color: var(--eva-ink); }
 .diversity-figure span { font-size: 11px; color: var(--eva-muted); }
-.progress-track { height: 14px; overflow: hidden; border-radius: 999px; background: rgba(225, 229, 223, .55); }
+.progress-track { height: 14px; overflow: hidden; border-radius: 999px; background: rgba(232, 220, 211, .55); }
 .progress-fill { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--eva-rose), var(--eva-orange)); transition: width .7s ease; }
 .progress-meta { display: flex; justify-content: space-between; gap: 10px; font-size: 10px; color: var(--eva-muted); }
 .diversity-list { display: grid; gap: 7px; margin: 0; padding: 0; list-style: none; }

@@ -18,7 +18,7 @@ import { AboutPage, ContactPage, FabricGuidePage, OrderConfirmationPage, OrderTr
 import NotFound from '@/pages/not-found'
 
 const shellStyles = `
-.skip-link { position: fixed; top: 14px; right: 14px; z-index: 140; display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; color: #F4F7F4; background: var(--eva-rose); border: 1px solid rgba(255, 255, 255, .4); border-radius: 999px; box-shadow: var(--eva-shadow-small); backdrop-filter: none; font-size: 12px; font-weight: 600; transform: translateY(-190%); transition: transform .2s ease; }
+.skip-link { position: fixed; top: 14px; right: 14px; z-index: 140; display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; color: #fff8f1; background: var(--eva-rose); border: 1px solid rgba(255, 255, 255, .4); border-radius: 999px; box-shadow: var(--eva-shadow-small); backdrop-filter: var(--glass-blur); font-size: 12px; font-weight: 600; transform: translateY(-190%); transition: transform .2s ease; }
 .skip-link:focus { transform: translateY(0); }
 .app-shell { overflow: clip; }
 .app-main { scroll-margin-top: 116px; }
@@ -133,7 +133,7 @@ function App() {
           <Route path="/favorites" component={() => <FavoritesPage {...pageProps} />} />
           <Route path="/stats" component={() => <StatsPage products={products} categories={categories} />} />
           <Route path="/about" component={AboutPage} />
-          <Route path="/fabric-guide" component={FabricGuidePage} />
+          <Route path="/materials-guide" component={FabricGuidePage} />
           <Route path="/contact" component={ContactPage} />
           <Route path="/policies" component={PoliciesPage} />
           <Route path="/order-tracking" component={OrderTrackingPage} />
