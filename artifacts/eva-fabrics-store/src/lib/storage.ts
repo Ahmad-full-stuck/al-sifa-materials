@@ -26,16 +26,46 @@ const dropLegacyCart = (): void => {
   }
 }
 
+// An earlier build appended each merged cart line back onto the list it was
+// building, so the stored value could hold thousands of duplicates of the same
+// product and colour. The cart only ever keeps one line per pair anyway, so
+// collapse the duplicates before anything else touches the list.
+const compactStoredCart = (raw: unknown[]): unknown[] => {
+  const seen = new Set<string>()
+  const compact: unknown[] = []
+  for (const entry of raw) {
+    if (!entry || typeof entry !== 'object') continue
+    const record = entry as Record<string, unknown>
+    const slug = typeof record.productSlug === 'string'
+      ? record.productSlug
+      : typeof record.slug === 'string'
+        ? record.slug
+        : ''
+    if (!slug) continue
+    const color = typeof record.colorId === 'string'
+      ? record.colorId
+      : typeof record.color === 'string'
+        ? record.color
+        : ''
+    const signature = `${slug}:${color}`
+    if (seen.has(signature)) continue
+    seen.add(signature)
+    compact.push(entry)
+    if (compact.length >= 200) break
+  }
+  return compact
+}
+
 const readStoredCart = (): unknown[] => {
   const current = readArrayOrNull(CART_KEY)
   if (current !== null) {
     dropLegacyCart()
-    return current
+    return compactStoredCart(current)
   }
   const legacy = readArrayOrNull('eva-fabrics-cart-v1')
   if (legacy === null) return []
   dropLegacyCart()
-  return legacy
+  return compactStoredCart(legacy)
 }
 
 const findProduct = (products: Product[], slug: string): Product | undefined => products.find((product) => product.slug === slug)
@@ -61,7 +91,8 @@ const merge = (cart: CartItem[], item: CartItem): CartItem[] => {
 }
 
 export const getStoredCart = (products: Product[]): CartItem[] => {
-  const result: CartItem[] = []
+  let result: CartItem[] = []
+  const seen = new Set<string>()
   for (const entry of readStoredCart()) {
     if (!entry || typeof entry !== 'object') continue
     const record = entry as Record<string, unknown>
@@ -81,6 +112,8 @@ export const getStoredCart = (products: Product[]): CartItem[] => {
         ? record.color
         : ''
     const color = findColor(product, colorId)
+    const signature = `${slug}:${color.id}`
+    if (seen.has(signature)) continue
     const rawQuantity = typeof record.quantity === 'number'
       ? record.quantity
       : typeof record.length === 'number'
@@ -88,7 +121,8 @@ export const getStoredCart = (products: Product[]): CartItem[] => {
         : 0
     const quantity = normalizeQuantity(rawQuantity)
     if (!quantity) continue
-    result.push(...merge(result, { product, color, quantity }))
+    seen.add(signature)
+    result = merge(result, { product, color, quantity })
   }
   return result
 }
@@ -120,13 +154,18 @@ export const updateCartItem = (cart: CartItem[], key: string, requestedQuantity:
 export const removeCartItem = (cart: CartItem[], key: string): CartItem[] => cart.filter((item) => orderKey(item) !== key)
 
 export const reconcileCart = (cart: CartItem[], products: Product[]): CartItem[] => {
-  const result: CartItem[] = []
+  let result: CartItem[] = []
+  const seen = new Set<string>()
   for (const item of cart) {
     const product = findProduct(products, item.product.slug)
     if (!product) continue
     const color = findColor(product, item.color.id)
+    const signature = `${product.slug}:${color.id}`
+    if (seen.has(signature)) continue
     const quantity = Math.min(item.quantity, availableStock(product, color))
-    if (quantity > 0) result.push(...merge(result, { product, color, quantity }))
+    if (quantity <= 0) continue
+    seen.add(signature)
+    result = merge(result, { product, color, quantity })
   }
   return result
 }
